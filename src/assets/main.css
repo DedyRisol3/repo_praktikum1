@@ -1,0 +1,19 @@
+@import './base.css';
+
+:root {
+  --primary: #6644ff;
+  --nav-bg: #1c1948;
+  --nav-border: #333;
+  --text-white: #ffffff;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
