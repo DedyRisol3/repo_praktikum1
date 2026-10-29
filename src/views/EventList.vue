@@ -10,7 +10,7 @@ import AppButton from '@/components/ui/AppButton.vue';
 const router = useRouter();
 
 // MENGONSUMSI SINGLE SOURCE OF TRUTH (Hanya mengambil event yang berstatus aktif)
-const { activeEvents } = useEvents();
+const { activeEvents, isUserRegistered } = useEvents();
 
 const searchQuery = ref('');
 const selectedCategory = ref('All');
@@ -49,20 +49,21 @@ const handleViewDetail = (id) => {
         v-for="event in filteredEvents"
         :key="event.id"
         :event="event"
+        :is-registered="isUserRegistered(event.id)"
         @view-detail="handleViewDetail"
       />
     </div>
 
     <!-- FRIENDLY EMPTY STATE -->
     <div v-else class="empty-state">
-      <div class="empty-icon">🗓️</div>
-      <h3 class="empty-title">No Events Available Yet</h3>
-      <p class="empty-desc">
+      <div class="empty-badge">CATALOG EMPTY</div>
+      <h3>No Events Available Yet</h3>
+      <p>
         There are currently no active events scheduled. Are you an organizer?
         Publish and manage your first event today through the Dashboard!
       </p>
       <div class="empty-action">
-        <AppButton variant="primary" @click="router.push('/dashboard/events')">
+        <AppButton variant="primary" @click="router.push('/dashboard')">
           Go to Organizer Dashboard &rarr;
         </AppButton>
       </div>
@@ -99,9 +100,17 @@ const handleViewDetail = (id) => {
   box-shadow: 0 4px 15px rgba(0,0,0,0.02);
 }
 
-.empty-icon {
-  font-size: 3.5rem;
-  margin-bottom: var(--space-3);
+.empty-badge {
+  display: inline-block;
+  background: var(--bg-light);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 4px 12px;
+  border-radius: 50px;
+  border: 1px solid var(--border-color);
+  margin-bottom: var(--space-4);
 }
 
 .empty-state h3 {

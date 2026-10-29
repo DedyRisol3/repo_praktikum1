@@ -1,0 +1,1 @@
+import{_ as e,p as t,t as n,y as r}from"./index-G-RwAJ8b.js";var i={},a={class:`app-card`};function o(n,i){return e(),t(`div`,a,[r(n.$slots,`default`,{},void 0,!0)])}var s=n(i,[[`render`,o],[`__scopeId`,`data-v-03550e52`]]);export{s as t};
