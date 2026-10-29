@@ -1,0 +1,1 @@
+import{D as e,_ as t,p as n,t as r,y as i}from"./index-G-RwAJ8b.js";var a=r({__name:`AppButton`,props:{variant:{type:String,default:`primary`}},emits:[`click`],setup(r){return(a,o)=>(t(),n(`button`,{class:e([`app-button`,`btn-${r.variant}`]),onClick:o[0]||=e=>a.$emit(`click`)},[i(a.$slots,`default`,{},void 0,!0)],2))}},[[`__scopeId`,`data-v-93c7cb29`]]);export{a as t};
