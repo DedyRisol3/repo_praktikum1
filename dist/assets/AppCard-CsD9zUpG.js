@@ -1,0 +1,1 @@
+import{b as e,p as t,t as n,v as r}from"./index-xKdP-IAN.js";var i={},a={class:`app-card`};function o(n,i){return r(),t(`div`,a,[e(n.$slots,`default`,{},void 0,!0)])}var s=n(i,[[`render`,o],[`__scopeId`,`data-v-03550e52`]]);export{s as t};
