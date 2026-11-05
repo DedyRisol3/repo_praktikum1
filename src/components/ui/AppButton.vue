@@ -1,5 +1,11 @@
 <template>
-  <button :class="['app-button', `btn-${variant}`]" @click="$emit('click')">
+  <button
+    :type="type"
+    :class="['app-button', `btn-${variant}`, { 'btn-loading': loading }]"
+    :disabled="disabled || loading"
+    @click="$emit('click', $event)"
+  >
+    <span v-if="loading" class="btn-spinner"></span>
     <slot />
   </button>
 </template>
@@ -8,7 +14,19 @@
 defineProps({
   variant: {
     type: String,
-    default: 'primary'
+    default: 'primary' // 'primary', 'secondary', 'outline'
+  },
+  type: {
+    type: String,
+    default: 'button'
+  },
+  disabled: {
+    type: Boolean,
+    default: false
+  },
+  loading: {
+    type: Boolean,
+    default: false
   }
 });
 defineEmits(['click']);
@@ -28,8 +46,18 @@ defineEmits(['click']);
   transition: transform 0.2s, background-color 0.2s;
 }
 
-.app-button:hover {
+.app-button:hover:not(:disabled) {
   transform: translateY(-2px);
+}
+
+.app-button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-loading {
+  cursor: wait;
 }
 
 .btn-primary {

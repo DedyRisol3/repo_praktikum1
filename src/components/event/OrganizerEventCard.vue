@@ -152,7 +152,7 @@ defineEmits(['view-detail', 'complete', 'delete']);
   font-weight: 600;
   cursor: pointer;
   background: white;
-  transition: all 0.2s;
+  transition: all 0.25s;
   white-space: nowrap;
 }
 
